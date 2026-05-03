@@ -21,7 +21,11 @@ int main()
 
     const int SHADER_COUNT = 3;
     int sh = 0;         // current shader selected, controls array index of vectors
-    std::vector<std::string> locations = {"shader.glsl", "shader2.glsl", "shader3.glsl"};
+    std::vector<std::string> locations = {
+        "assets/shaders/shader.glsl",
+        "assets/shaders/shader2.glsl",
+        "assets/shaders/shader3.glsl"
+    };
     std::vector<std::string> shader_texts;              // strings with the text of all the shaders
     std::vector<Shader> shaders;                        // actual shader struct which raylib uses
 
@@ -42,8 +46,8 @@ int main()
 
 // text editor initialization
 
-    Font font = LoadFont("../../assets/fonts/DejaVuSansMono/DejaVuSansMono.ttf");
-    Texture tex = LoadTexture("../../assets/textures/flowerpaint.png");
+    Font font = LoadFont("assets/fonts/DejaVuSansMono.ttf");
+    Texture tex = LoadTexture("assets/textures/flowerpaint.png");
     //Texture tex = LoadTexture("../../assets/textures/square_red.png");
     Image texDefaultImage = GenImageColor(1, 1, BLACK);
     Texture texDefault = LoadTextureFromImage(texDefaultImage);

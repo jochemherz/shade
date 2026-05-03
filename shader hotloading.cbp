@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="C:/raylib/raylib/src" />
+			<Add directory="include/" />
 		</Compiler>
 		<Linker>
 			<Add library="raylib" />
@@ -39,9 +40,8 @@
 			<Add library="gdi32" />
 			<Add directory="C:/raylib/raylib/src" />
 		</Linker>
-		<Unit filename="main.cpp" />
-		<Unit filename="tests/textbox.cpp" />
-		<Unit filename="tests/textbox.h" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/textbox.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
