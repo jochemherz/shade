@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1777846692 source:d:\raylib\sandbox\shader hotloading\main.cpp
+	"raylib.h"
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	"textbox.h"
+	"rlgl.h"
+
+1771785897 c:\raylib\raylib\src\raylib.h
+	<stdarg.h>
+	<stdbool.h>
+
+1777825471 source:d:\raylib\sandbox\shader hotloading\tests\textbox.cpp
+	"textbox.h"
+	<string>
+	<algorithm>
+	<iostream>
+
+1777825073 d:\raylib\sandbox\shader hotloading\tests\textbox.h
+	<string>
+	<vector>
+
+1771785897 c:\raylib\raylib\src\rlgl.h
+	<stdbool.h>
+	<OpenGL/gl.h>
+	<OpenGL/glext.h>
+	<GL/gl.h>
+	"external/glad.h"
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	"external/glad_gles2.h"
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1771785897 c:\raylib\raylib\src\external\glad.h
+	<winapifamily.h>
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1771785897 c:\raylib\raylib\src\external\glad_gles2.h
+	<winapifamily.h>
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1777825073 d:\raylib\sandbox\shader hotloading\include\\textbox.h
+	<string>
+	<vector>
+
+1777838261 source:d:\raylib\sandbox\shader hotloading\textbox.cpp
+	"textbox.h"
+	<string>
+	<algorithm>
+	<iostream>
+
