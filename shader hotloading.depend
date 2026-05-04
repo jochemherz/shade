@@ -71,7 +71,7 @@
 	<algorithm>
 	<iostream>
 
-1777848209 source:d:\raylib\sandbox\shader hotloading\src\main.cpp
+1777857958 source:d:\raylib\sandbox\shader hotloading\src\main.cpp
 	"raylib.h"
 	<iostream>
 	<vector>
@@ -79,4 +79,28 @@
 	<fstream>
 	"textbox.h"
 	"rlgl.h"
+	"tinyfiledialogs.h"
+
+1777846786 source:d:\raylib\sandbox\shader hotloading\vendor\tinyfiledialogs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<sys/stat.h>
+	<windows.h>
+	<commdlg.h>
+	<shlobj.h>
+	<conio.h>
+	<direct.h>
+	<limits.h>
+	<unistd.h>
+	<dirent.h>
+	<termios.h>
+	<sys/utsname.h>
+	<signal.h>
+	"tinyfiledialogs.h"
+
+1777846378 d:\raylib\sandbox\shader hotloading\vendor\tinyfiledialogs.h
+
+1777846378 d:\raylib\sandbox\shader hotloading\vendor\\tinyfiledialogs.h
 

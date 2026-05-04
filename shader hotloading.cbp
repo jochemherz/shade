@@ -33,15 +33,21 @@
 			<Add option="-fexceptions" />
 			<Add directory="C:/raylib/raylib/src" />
 			<Add directory="include/" />
+			<Add directory="vendor/" />
 		</Compiler>
 		<Linker>
 			<Add library="raylib" />
 			<Add library="winmm" />
 			<Add library="gdi32" />
+			<Add library="Comdlg32" />
+			<Add library="Ole32" />
 			<Add directory="C:/raylib/raylib/src" />
 		</Linker>
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/textbox.cpp" />
+		<Unit filename="vendor/tinyfiledialogs.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

@@ -5,6 +5,7 @@
 #include <fstream>
 #include "textbox.h"
 #include "rlgl.h"
+#include "tinyfiledialogs.h"
 
 
 
@@ -15,6 +16,7 @@ int main()
     InitWindow(screenWidth, screenHeight, "hotloader");
     SetTargetFPS(60);
 
+    int frameCount = 0;
     SetTextLineSpacing(0);
 
 // shader vector stuff
@@ -40,6 +42,7 @@ int main()
         while(getline(file, line)) {
             text += line + '\n'; // copy file to string line by line i guess
         }
+        if(!text.empty()) text.pop_back();
         shader_texts.push_back(text);
         shaders.push_back(LoadShaderFromMemory(0, shader_texts[i].c_str()));
     }
@@ -95,6 +98,35 @@ int main()
 
             tb.Update();     // increase frame counter
 
+            //CONTROL
+            if(IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_S)){         // save
+                std::string path = tinyfd_saveFileDialog("Save", "newShader.glsl", 0, NULL, NULL);
+                std::ofstream file(path);
+                file << tb.GetText();
+                file.close();
+            }
+
+            if(IsKeyDown(KEY_LEFT_CONTROL) && IsKeyPressed(KEY_O)){         // open
+                std::string path = tinyfd_openFileDialog("Select a Shadé", "assets\\", 0, NULL, NULL, 0);
+                std::ifstream file(path); // open file
+                if(file.is_open()){
+                    std::string text;
+                    std::string line;
+                    while(getline(file, line)) {
+                        text += line + '\n'; // copy file to string line by line i guess
+                    }
+                    if(!text.empty()) text.pop_back();
+                    tb = textbox_mono(text, 10, 10, screenWidth, screenHeight, cellwidth, cellheight);
+                    Shader shd = LoadShaderFromMemory(0, tb.GetText().c_str());
+
+                    if(IsShaderValid(shd)){
+                        UnloadShader(shaders[sh]);
+                        shaders[sh] = shd;
+                        frameCount = 0;
+                    } // lots of repeated stuff
+                }
+            }
+
             //DEBUG
             if(IsKeyPressed(KEY_F1)) {std::string buf = tb.GetLineBuffer(); std::cout << '\n' << buf; }
             if(IsKeyPressed(KEY_F2)){
@@ -103,11 +135,25 @@ int main()
                 if(IsShaderValid(shd)){
                     UnloadShader(shaders[sh]);
                     shaders[sh] = shd;
+                    frameCount = 0;
                 }
 
             }
             if(IsKeyPressed(KEY_F3)){ showingText = !showingText; }
             if(IsKeyPressed(KEY_F4)){ tb.HandleInput({InputType::DEBUG_println}); }
+            if(IsKeyPressed(KEY_F5)) { unsigned char co[3] = {0, 0, 0}; std::string s = ""; tinyfd_colorChooser("COLOR PICKER YE", "#000000", co, co); }
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------
+
+//update
+frameCount++;
+if(frameCount >= INT_MAX) frameCount = 0;
+int frameUniformLocation = GetShaderLocation(shaders[sh], "t");
+if(frameUniformLocation != -1) {
+        float t = (float)frameCount;
+        SetShaderValue(shaders[sh], frameUniformLocation, &t, SHADER_UNIFORM_FLOAT);
+}
 
 //---------------------------------------------------------------------------------------------------------------------------------------
 
